@@ -35,7 +35,7 @@ const StyledHeader = Styled.header`
     width: 100%;
     max-width: 100%;
     min-height: 80px;
-    padding: 0 6%;
+    padding: 0 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,7 +44,8 @@ const StyledHeader = Styled.header`
         a {
             margin-right: 2.1rem;
             font-size: 1.125rem;
-            
+            font-weight: 600;
+            color: #0C2333;
         }
     }
 `;
