@@ -1,0 +1,5 @@
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder  {
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+}

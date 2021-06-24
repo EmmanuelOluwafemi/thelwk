@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import useRouter from 'next/router';
 
-import Button from './Button';
+import {Button} from './Button';
 
 const Header = () => {
 
@@ -35,12 +35,19 @@ const StyledHeader = Styled.header`
     width: 100%;
     max-width: 100%;
     min-height: 80px;
-    padding: 0 5%;
+    padding: 0 4%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     .menu {
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+        
         a {
             margin-right: 2.1rem;
             font-size: 1.125rem;
