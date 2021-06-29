@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import images from "../../assets/images";
 
+const { naijaflag, falz, ogaVP, ogaBubu, endSars, halfMoon, drop } = images;
+
 const AuthLayout = ({ children }) => {
-  const { naijaflag, falz, ogaVP, ogaBubu, endSars, halfMoon } = images;
   return (
     <AuthLayoutStyle>
       <div id="left">
@@ -138,11 +139,19 @@ const AuthLayoutStyle = styled.div`
       width: 70%;
       margin: auto;
 
+      @media screen and (max-width: 780px) {
+        width: 80%;
+      }
+
       h1 {
         font-style: normal;
         font-weight: 600;
         font-size: 2.625rem;
         margin-bottom: 10%;
+
+        @media screen and (max-width: 780px) {
+          font-size: 2rem;
+        }
       }
 
       .input {
@@ -185,7 +194,12 @@ const AuthLayoutStyle = styled.div`
         }
 
         select {
-          padding-right: 1rem !important;
+          -webkit-appearance: none;
+          background-image: url(${drop});
+          background-position: right center;
+          background-repeat: no-repeat;
+          padding-right: 1.5em;
+          border: 10px solid #deefff;
         }
       }
       button {

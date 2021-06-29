@@ -4,6 +4,7 @@ import falz from "./falz.png";
 import ogaVP from "./ogaVP.png";
 import ogaBubu from "./ogaBubu.png";
 import endSars from "./endSars.png";
+import drop from "./drop.svg";
 
 const images = {
   naijaflag,
@@ -12,6 +13,7 @@ const images = {
   ogaBubu,
   endSars,
   halfMoon,
+  drop,
 };
 
 export default images;
