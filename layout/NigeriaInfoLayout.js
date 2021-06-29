@@ -5,7 +5,7 @@ import '../styles/nigeriaInfo.module.css'
 import React, { useState } from 'react';
 
 import Styled from 'styled-components';
-import Header from '../components/Header';
+import {LoggedHeader} from '../components/Header';
 import NaijaStates from 'naija-state-local-government';
 
 // External Library
@@ -22,13 +22,11 @@ const NigeriaInfoLayout = ({ children, title }) => {
         setState(value)
 
         setLg(NaijaStates.lgas(value).lgas)
-
-        console.log(lgas)
     }
 
     return (
         <>
-        <Header />
+        <LoggedHeader />
         <StyledLayout>
             <div className="container">
                 <div className="heading">
@@ -61,6 +59,7 @@ export default NigeriaInfoLayout;
 
 const StyledLayout = Styled.div`
     width: 100%;
+    background: #F7FBFF;
 
     .container {
         padding: 0 4%;

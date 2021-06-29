@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Footer from '../components/Footer'
 
 // Components
-import Header from '../components/Header'
+import {Header} from '../components/Header'
 import Hero from '../components/Hero'
 import Covid from '../components/home/Covid'
 import MusicTrends from '../components/home/MusicTrends'
