@@ -149,6 +149,10 @@ const AuthLayoutStyle = styled.div`
         margin: 2rem 0;
         position: relative;
 
+        &.reg {
+          margin: 1rem 0;
+        }
+
         label {
           display: flex;
           align-items: center;
@@ -158,7 +162,19 @@ const AuthLayoutStyle = styled.div`
           margin-bottom: 0.4rem;
         }
 
-        input {
+        .group {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          input,
+          select {
+            width: 30%;
+          }
+        }
+
+        input,
+        select {
           width: 100%;
           height: 40px;
           outline: none;
@@ -166,6 +182,10 @@ const AuthLayoutStyle = styled.div`
           background: #deefff;
           border: none;
           border-radius: 10px;
+        }
+
+        select {
+          padding-right: 1rem !important;
         }
       }
       button {
