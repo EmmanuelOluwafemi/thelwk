@@ -23,6 +23,7 @@ export const AmenitiesCard = ({ imgUrl, title, num }) => {
 
 const StyledCard = Styled.div`
     width: 100%;
+    max-width: 370px;
     display: flex;
     align-items: center;
     justify-content: center;

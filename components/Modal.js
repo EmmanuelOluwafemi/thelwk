@@ -33,7 +33,6 @@ const StyledModal = Styled.div`
     align-items: center;
     justify-content: center;
     z-index: 4;
-    cursor: pointer;
 
     .container {
         width: 100%;
@@ -43,10 +42,15 @@ const StyledModal = Styled.div`
         position: relative;
         background: #fff;
         padding: 2.5rem 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @media( max-width: 768px ) {
             min-height: 300px;
             max-width: 90vw;
+
+            overflow: auto;
         }
         
         .close {
