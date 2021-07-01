@@ -60,8 +60,9 @@ const StyledTrendsUpdate = Styled.section`
 
     .grid {
         display: grid;
-        grid-template-columns: 2fr 3fr 2fr;
-        grid-gap: 1rem;
+        grid-template-columns: 23% 43% 30%;
+        justify-content: space-between;
+        grid-gap: 2rem;
         margin-top: 3rem;
 
         @media (max-width: 768px) {

@@ -104,7 +104,6 @@ const StyledNigerInfo = Styled.section`
     max-width: 100vw;
     min-height: 93%;
     position: relative;
-    padding: 0 4%;
 
     .topImage {
         position: absolute;

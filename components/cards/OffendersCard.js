@@ -51,7 +51,6 @@ const StyledOffenders = Styled.div`
     }
 
     .content {
-
         padding: .5rem 0;
 
         .name {

@@ -82,7 +82,7 @@ const StyledLayout = Styled.div`
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1rem;
         width: 100%;
-        max-width: 600px;
+        max-width: 300px;
         margin: 3rem 0;
 
         .selector {
@@ -90,7 +90,6 @@ const StyledLayout = Styled.div`
             border-radius: 32px;
 
             .ant-select-selector {
-                height: 48px;
                 border-radius: 32px;
             }
         }

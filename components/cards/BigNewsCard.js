@@ -23,7 +23,18 @@ const data = [
         In nunc, volutpat lorem commodo tempor tincidunt porttitor rhoncus, ut. Rhoncus purus cursus
         luctus vulputate donec quam. Etiam suscipit aliquet pellentesque gravida duis. Lobortis placerat 
         sagittis, est, nulla lectus`
-    }
+    },
+    {
+        imgUrl: slide2,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu...',
+        content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci pretium, 
+        pharetra lacus, pulvinar habitasse faucibus. Iaculis tincidunt nisl nisl condimentum 
+        velit tellus egestas platea. Morbi faucibus elementum pretium integer nec aliquam libero. 
+        At facilisi eu quam at nibh sit. Vel egestas facilisi viverra duis.
+        In nunc, volutpat lorem commodo tempor tincidunt porttitor rhoncus, ut. Rhoncus purus cursus
+        luctus vulputate donec quam. Etiam suscipit aliquet pellentesque gravida duis. Lobortis placerat 
+        sagittis, est, nulla lectus`
+    },
 ]
 
 const BigNewsCard = () => {

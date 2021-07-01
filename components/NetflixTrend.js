@@ -99,6 +99,7 @@ const StyledNetflixTrend = Styled.section`
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min-content, 210px));
+        justify-content: space-between;
         grid-gap: 2rem;
         margin-top: 1.5rem;
 

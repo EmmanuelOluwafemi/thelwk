@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styled from 'styled-components';
 
 import Link from 'next/link';
@@ -12,13 +12,13 @@ import { RiPieChartLine } from 'react-icons/ri';
 import { SiTwitter } from 'react-icons/si';
 import { BiUserCircle } from 'react-icons/bi';
 import { BiChevronDownCircle } from 'react-icons/bi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Header = () => {
+    const [toggle, setToggle] = useState(false);
 
-    // let router = useRouter();
-
-    const handleFunc = () => {
-        // router.push('/');    
+    const handleToggle = () => {
+        setToggle(!toggle)
     }
 
     return (
@@ -27,9 +27,27 @@ export const Header = () => {
             <div className="menu">
                 <Link href="/">Home</Link>
                 <Link href="/twitter">Twitter trends</Link>
-                <Link href="/news">Nigeria News</Link>
+                <Link href="/nigeria-news">Nigeria News</Link>
                 <Link href="/login">Login</Link>
-                <Button func={handleFunc}>Sign up</Button>
+                <Link href="/register">
+                    <Button>Sign up</Button>
+                </Link>
+            </div>
+            <div onClick={handleToggle} className="mobileToggler">
+                <GiHamburgerMenu className="icon" />
+                Menu
+            </div>
+
+            <div onClick={handleToggle} className={toggle ? "overlay active" : "overlay"}>
+                <div className="menu-container">
+                    <Link onClick={handleToggle} href="/">Home</Link>
+                    <Link onClick={handleToggle} href="/twitter">Twitter trends</Link>
+                    <Link onClick={handleToggle} href="/nigeria-news">Nigeria News</Link>
+                    <Link onClick={handleToggle} href="/login">Login</Link>
+                    <Link onClick={handleToggle} href="/register">
+                        <Button>Sign up</Button>
+                    </Link>
+                </div>
             </div>
         </StyledHeader>
     )
@@ -97,6 +115,61 @@ const StyledHeader = Styled.header`
             font-size: 1.125rem;
             font-weight: 600;
             color: #0C2333;
+        }
+    }
+
+    .mobileToggler {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: .7rem;
+        font-weight: 600;
+        color: #000;
+
+        .icon {
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, .4);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        transition: all .7s ease-in;
+
+        &.active {
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .menu-container {
+            height: 100%;
+            width: 65%;
+            background: #fff;
+            padding: 3rem 1rem;
+
+            a {
+                display: block;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #0C2333;
+                margin-bottom: 2rem;
+            }
         }
     }
 `;

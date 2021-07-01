@@ -16,28 +16,47 @@ const Hero = () => {
         slidesToScroll: 1
     };
     return (
-        <Slider {...settings}>
-            <div>
-                <StyledHero style={{ backgroundImage: `url(${bg1})` }}>
-                    <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Eu suspendisse tortor nunc arcu. Ut et netus vel tellus.</p>
-                    <Button>
-                        Sign up
+        <SliderContainer>
+            <Slider {...settings}>
+                <div>
+                    <StyledHero style={{ backgroundImage: `url(${bg1})` }}>
+                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Eu suspendisse tortor nunc arcu. Ut et netus vel tellus.</p>
+                        <Button>
+                            Sign up
 
-                        <IoArrowForwardSharp className="icon" />
-                    </Button>
-                </StyledHero>
-            </div>
-        </Slider>
+                            <IoArrowForwardSharp className="icon" />
+                        </Button>
+                    </StyledHero>
+                </div>
+                <div>
+                    <StyledHero style={{ backgroundImage: `url(${bg1})` }}>
+                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Eu suspendisse tortor nunc arcu. Ut et netus vel tellus.</p>
+                        <Button>
+                            Sign up
+
+                            <IoArrowForwardSharp className="icon" />
+                        </Button>
+                    </StyledHero>
+                </div>
+            </Slider>
+        </SliderContainer>
     )
 }
 
 export default Hero;
 
-const StyledHero = Styled.section`
+const SliderContainer = Styled.div`
     width: 100%;
     max-width: 100vw;
+    overflow-x: hidden;
+`
+
+const StyledHero = Styled.section`
+    width: 100%;
     min-height: 85vh;
     padding: 0 4%;
     display: flex;
