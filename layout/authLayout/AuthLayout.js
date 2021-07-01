@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import images from "../../assets/images";
 
@@ -6,32 +7,41 @@ const { naijaflag, falz, ogaVP, ogaBubu, endSars, halfMoon, drop } = images;
 
 const AuthLayout = ({ children }) => {
   return (
-    <AuthLayoutStyle>
-      <div id="left">
-        <div id="flag">
-          <img src={naijaflag} />
+    <>
+      {/* Prevent Page from zooming on IOS devices */}
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Head>
+      <AuthLayoutStyle>
+        <div id="left">
+          <div id="flag">
+            <img src={naijaflag} />
+          </div>
+          <div id="falz">
+            <img src={falz} />
+          </div>
+          <div id="moonSm">
+            <img src={halfMoon} />
+          </div>
+          <div id="ogaVP">
+            <img src={ogaVP} />
+          </div>
+          <div id="moonLg">
+            <img src={halfMoon} />
+          </div>
+          <div id="ogaBubu">
+            <img src={ogaBubu} />
+          </div>
+          <div id="endSars">
+            <img src={endSars} />
+          </div>
         </div>
-        <div id="falz">
-          <img src={falz} />
-        </div>
-        <div id="moonSm">
-          <img src={halfMoon} />
-        </div>
-        <div id="ogaVP">
-          <img src={ogaVP} />
-        </div>
-        <div id="moonLg">
-          <img src={halfMoon} />
-        </div>
-        <div id="ogaBubu">
-          <img src={ogaBubu} />
-        </div>
-        <div id="endSars">
-          <img src={endSars} />
-        </div>
-      </div>
-      <div id="right">{children}</div>
-    </AuthLayoutStyle>
+        <div id="right">{children}</div>
+      </AuthLayoutStyle>
+    </>
   );
 };
 

@@ -134,7 +134,7 @@ const Register = () => {
         </div>
         <button>Register</button>
         <small className="cta">
-          Don’t have an account? <Link href="/register"> Create account. </Link>
+          Already have an account? <Link href="/login"> Login. </Link>
         </small>
       </form>
     </AuthLayout>
