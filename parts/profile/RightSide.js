@@ -89,6 +89,12 @@ export default RightSide;
 const RightSideStyles = styled.div`
   width: 72%;
 
+  @media screen and (max-width: 789px) {
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+  }
+
   .gallery-card {
     width: 65%;
     height: auto;
@@ -96,6 +102,10 @@ const RightSideStyles = styled.div`
     border-radius: 30px;
     margin-top: 2rem;
     padding: 1.5rem;
+
+    @media screen and (max-width: 789px) {
+      display: none;
+    }
 
     .title {
       display: flex;
@@ -156,11 +166,21 @@ const RightSideStyles = styled.div`
     justify-content: space-between;
     margin-top: 1.7rem;
 
+    @media screen and (max-width: 789px) {
+      display: block;
+      width: 100%;
+    }
+
     .cta {
       width: 45%;
       padding: 1.3rem;
       border-radius: 30px;
       display: flex;
+
+      @media screen and (max-width: 789px) {
+        width: 100%;
+        margin: 1rem auto;
+      }
 
       .icon {
         width: 43px;
@@ -213,7 +233,6 @@ const RightSideStyles = styled.div`
         }
 
         .words {
-
           p {
             font-size: 0.8rem;
           }

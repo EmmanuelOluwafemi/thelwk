@@ -45,9 +45,14 @@ const LeftSideStyles = styled.div`
   font-family: Gilroy;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 3rem;
+
+  @media screen and (max-width: 789px) {
+    width: 100%;
+    margin-top: 1rem;
+  }
 
   .user {
     .avatar {

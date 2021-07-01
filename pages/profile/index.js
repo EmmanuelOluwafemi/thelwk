@@ -23,4 +23,9 @@ const ProfileStyles = styled.div`
   background: #e1f6ff;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 769px) {
+    display: block;
+    height: auto;
+  }
 `;
