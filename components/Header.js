@@ -177,7 +177,7 @@ const StyledHeader = Styled.header`
 const StyledLoggedHeader = Styled.header`
     width: 100%;
     max-width: 100vw;
-    min-height: 15vh;
+    min-height: 10vh;
     padding: 0 4%;
     display: flex;
     align-items: center;

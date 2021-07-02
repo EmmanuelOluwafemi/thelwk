@@ -1,9 +1,11 @@
 import React from 'react';
 import Styled from 'styled-components';
 
+// component
+import NetflixCard from './cards/NetflixCard';
+
 // icons
 import { FiTrendingUp } from 'react-icons/fi';
-import NetflixCard from './cards/NetflixCard';
 
 // images
 import vid1 from '../assets/images/vid1.jpg'
