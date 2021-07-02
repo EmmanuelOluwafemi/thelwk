@@ -107,8 +107,8 @@ const StyledNetflixTrend = Styled.section`
 
         @media (max-width: 768px) {
             width: 100%;
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
         }
     }
 

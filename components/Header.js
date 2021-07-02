@@ -13,6 +13,8 @@ import { SiTwitter } from 'react-icons/si';
 import { BiUserCircle } from 'react-icons/bi';
 import { BiChevronDownCircle } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaUser } from 'react-icons/fa';
+import { AiOutlineLogout } from 'react-icons/ai';
 
 export const Header = () => {
     const [toggle, setToggle] = useState(false);
@@ -54,6 +56,13 @@ export const Header = () => {
 }
 
 export const LoggedHeader = () => {
+
+    const [toggle, setToggle] = useState(false);
+
+    const handleToggle = () => {
+        setToggle(!toggle)
+    }
+
     return (
         <StyledLoggedHeader>
             <div className="logo">logo</div>
@@ -70,7 +79,7 @@ export const LoggedHeader = () => {
                         <GiNewspaper className="icon" />
                     </a>
                 </Link>
-                <Link href="/">
+                <Link href="/trends-charts">
                     <a>
                         Trend Charts
                         <RiPieChartLine className="icon" />
@@ -87,6 +96,33 @@ export const LoggedHeader = () => {
                     <BiUserCircle className="icon" />
                     <div className="name">Solaru Olusegun</div>
                     <BiChevronDownCircle className="icon small" />
+
+                    <div className="dropdown">
+                        <Link href="/">
+                            <a>
+                                <FaUser className="icon" />
+                                Profile
+                            </a>
+                        </Link>
+                        <button>
+                            <AiOutlineLogout className="icon" />
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div onClick={handleToggle} className="mobileToggler">
+                <GiHamburgerMenu className="icon" />
+                Menu
+            </div>
+
+            <div onClick={handleToggle} className={toggle ? "overlay active" : "overlay"}>
+                <div className="menu-container">
+                    <Link onClick={handleToggle} href="/">Home</Link>
+                    <Link onClick={handleToggle} href="/nigeria-info">Nigerian Info</Link>
+                    <Link onClick={handleToggle} href="/nigeria-news">Nigeria News</Link>
+                    <Link onClick={handleToggle} href="/trends-charts">Trend Charts</Link>
+                    <Link onClick={handleToggle} href="/">Twitter Trends</Link>
                 </div>
             </div>
         </StyledLoggedHeader>
@@ -225,6 +261,7 @@ const StyledLoggedHeader = Styled.header`
             align-items: center;
             margin-left: 2.5rem;
             cursor: pointer;
+            position: relative;
 
             .icon {
                 font-size: 1.5rem;
@@ -240,6 +277,87 @@ const StyledLoggedHeader = Styled.header`
                 font-weight: 600;
                 color: #fff;
                 margin: 0 .8rem;
+            }
+
+            .dropdown {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: #0C2333;
+                padding: 1.5rem;
+
+                a {
+                    width: 100%:
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: #fff;
+
+                    .icon {
+                        font-size: 1.5rem;
+                        color: #fff;
+                        margin-right: .7rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .mobileToggler {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: .7rem;
+        font-weight: 600;
+        color: #fff;
+
+        .icon {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, .4);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        transition: all .7s ease-in;
+
+        &.active {
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .menu-container {
+            height: 100%;
+            width: 65%;
+            background: #fff;
+            padding: 3rem 1rem;
+
+            a {
+                display: block;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #0C2333;
+                margin-bottom: 2rem;
             }
         }
     }

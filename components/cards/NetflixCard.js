@@ -49,6 +49,10 @@ const StyledNetflixCard = Styled.div`
         line-height: 1.4rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
+
+        @media (max-width: 768px) {
+            font-size: .8rem;
+        }
     }
 
     .buttomContent {

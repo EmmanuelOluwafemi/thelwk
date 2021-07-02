@@ -39,6 +39,27 @@ const TrendsChartsLayout = ({ children }) => {
                     </Link>
                 </div>
 
+                <div className="bottom-bar">
+                    <Link href="/trends-charts">
+                        <a className="active"> 
+                            <BsMusicNoteBeamed className="icons" />
+                            Music Nigeria
+                        </a>
+                    </Link>
+                    <Link href="/trends-charts/netflix-chart">
+                        <a>
+                            <RiNetflixFill className="icons netflix" />
+                            Netflix Chart
+                        </a>
+                    </Link>
+                    <Link href="/trends-charts/covid-chart">
+                        <a>
+                            <img src={covid} alt="covid symbol" className="covid" />
+                            COVID Chart
+                        </a>
+                    </Link>
+                </div>
+
                 <div className="content">
                     {children}
                 </div>
@@ -53,8 +74,6 @@ const StyledLayout = Styled.section`
     width: 100%;
     height: 100%;
     min-height: 90vh;
-    /* display: grid;
-    grid-template-columns: 250px 1fr; */
     overflow-x: hidden;
 
     .side-bar {
@@ -66,7 +85,7 @@ const StyledLayout = Styled.section`
         width: 250px;
         height: 100%;
         background: #0C2333;
-        padding: 3.5rem;
+        padding: 7rem;
         padding-right: 0;
         padding-left: 1.5rem;
 
@@ -103,11 +122,59 @@ const StyledLayout = Styled.section`
                 border-bottom-left-radius: 40px;
             }
         }
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .bottom-bar {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 72px;
+        padding: 0 8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #0C2333;
+        margin-top: 1px solid #0C233303;
+        z-index: 1;
+
+        @media  (min-width: 768px) {
+            display: none;
+        }
+
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: .5rem;
+            color: #fff;
+
+            .icons {
+                font-size: 1.25rem;
+                color: #fff;
+                margin-bottom: .5rem;
+            }
+
+            img {
+                width: 1.25rem;
+                height: auto;
+                margin-bottom: .5rem;
+            }
+        }
     }
 
     .content {
         width: 100%;
         height: 100%;
         padding-left: 250px;
+
+        @media (max-width: 768px) {
+            padding-left: 0;
+        }
     }
 `

@@ -77,9 +77,11 @@ const Netflix = () => {
             <StyledTrend>
                 <Slider className="slider" {...settings}>
                     <div className="slider-content">
-                        <img src={rampage} alt="rampage" />
+                        <div className="img-container">
+                            <img src={rampage} alt="rampage" />
+                        </div>
 
-                        <div className="content">
+                        <div className="contentful">
                             <div className="bigTitle">
                                 Rampage
                             </div>
@@ -153,21 +155,37 @@ const StyledTrend = Styled.section`
             width: 100%;
             position: relative;
 
-            img {
+            .img-container {
                 width: 100%;
-                height: auto;
+                height: 85vh;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
-            .content {
+            .contentful {
                 position: absolute;
                 top: 1.5rem;
-                left: 3rem;
+                left: 6rem;
+
+                @media (max-width: 768px) {
+                    top: 50%;
+                    left: 1.5rem;
+                    transform: translateY(-50%);
+                }
 
                 .bigTitle {
                     font-size: 12rem;
                     font-weight: 700;
                     -webkit-text-stroke: 1px #E0CDBA;
                     -webkit-text-fill-color: transparent;
+
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
                 }
 
                 .rating {
@@ -200,6 +218,10 @@ const StyledTrend = Styled.section`
                     color: #fff;
                     line-height: 1.5;
                     max-width: 480px;
+
+                    @media (max-width: 768px) {
+                        max-width: 320px;
+                    }
                 }
 
                 button {
@@ -248,6 +270,10 @@ const StyledTrend = Styled.section`
         width: 100%;
         padding: 1.5rem 3rem;
 
+        @media (max-width: 768px) {
+            padding: 1rem 1.5rem;
+        }
+
         .heading {
             font-size: 1.5rem;
             font-weight: 700;
@@ -277,8 +303,17 @@ const StyledTrend = Styled.section`
                 background: none;
                 cursor: pointer;
 
+                @media (max-width: 768px) {
+                    padding: .6rem 1.5rem;
+                    font-size: .8rem;
+                }
+
                 &:nth-child(2) {
                     margin: 0 2rem;
+
+                    @media (max-width: 768px) {
+                        margin: 0 .6rem;
+                    }
                 }
 
                 &.active, &:hover {
@@ -326,8 +361,8 @@ const StyledTrend = Styled.section`
 
             @media (max-width: 768px) {
                 width: 100%;
-                grid-template-columns: repeat(1, 1fr);
-                grid-gap: 3rem;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1rem;
             }
         }
     }
