@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import "antd/dist/antd.css";
 import styled from "styled-components";
 import { FiEdit } from "react-icons/fi";
 import images from "../../assets/images";
+import { GrAdd } from "react-icons/gr";
 
-const LeftSide = () => {
+const LeftSide = ({ showDrawer }) => {
   return (
     <>
       <LeftSideStyles>
         <div className="user">
           <div className="avatar">
             <img src={images.avatar1} alt="avatar" />
+            <span onClick={showDrawer}>
+              <GrAdd />
+            </span>
           </div>
           <div className="user-info">
             <h3>Solaru Olusegun</h3>
@@ -61,11 +66,29 @@ const LeftSideStyles = styled.div`
       border-radius: 100px;
       overflow: hidden;
       margin: auto;
+      position: relative;
 
       img {
         display: block;
         width: 100%;
         height: 100%;
+      }
+
+      span {
+        position: absolute;
+        bottom: 15%;
+        right: 15%;
+        width: 25px;
+        height: 25px;
+        background: #e1f6ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+
+        @media screen and (min-width: 789px) {
+          display: none;
+        }
       }
     }
 

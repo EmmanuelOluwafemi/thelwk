@@ -1,102 +1,112 @@
-import React, { useState } from 'react';
-import Styled from 'styled-components';
+import React, { useState } from "react";
+import Styled from "styled-components";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import {Button} from './Button';
+import { Button } from "./Button";
 
 // icons
-import { TiInfoLargeOutline } from 'react-icons/ti';
-import { GiNewspaper } from 'react-icons/gi';
-import { RiPieChartLine } from 'react-icons/ri';
-import { SiTwitter } from 'react-icons/si';
-import { BiUserCircle } from 'react-icons/bi';
-import { BiChevronDownCircle } from 'react-icons/bi';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaUser } from 'react-icons/fa';
-import { AiOutlineLogout } from 'react-icons/ai';
+import { TiInfoLargeOutline } from "react-icons/ti";
+import { GiNewspaper } from "react-icons/gi";
+import { RiPieChartLine } from "react-icons/ri";
+import { SiTwitter } from "react-icons/si";
+import { BiUserCircle } from "react-icons/bi";
+import { BiChevronDownCircle } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaUser } from "react-icons/fa";
+import { AiOutlineLogout } from "react-icons/ai";
 
 export const Header = () => {
-    const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-    const handleToggle = () => {
-        setToggle(!toggle)
-    }
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
-    return (
-        <StyledHeader>
-            <div className="logo">logo</div>
-            <div className="menu">
-                <Link href="/">Home</Link>
-                <Link href="/twitter">Twitter trends</Link>
-                <Link href="/nigeria-news">Nigeria News</Link>
-                <Link href="/login">Login</Link>
-                <Link href="/register">
-                    <Button>Sign up</Button>
-                </Link>
-            </div>
-            <div onClick={handleToggle} className="mobileToggler">
-                <GiHamburgerMenu className="icon" />
-                Menu
-            </div>
+  return (
+    <StyledHeader>
+      <div className="logo">logo</div>
+      <div className="menu">
+        <Link href="/">Home</Link>
+        <Link href="/twitter-trends">Twitter trends</Link>
+        <Link href="/nigeria-news">Nigeria News</Link>
+        <Link href="/login">Login</Link>
+        <Link href="/register">
+          <Button>Sign up</Button>
+        </Link>
+      </div>
+      <div onClick={handleToggle} className="mobileToggler">
+        <GiHamburgerMenu className="icon" />
+        Menu
+      </div>
 
-            <div onClick={handleToggle} className={toggle ? "overlay active" : "overlay"}>
-                <div className="menu-container">
-                    <Link onClick={handleToggle} href="/">Home</Link>
-                    <Link onClick={handleToggle} href="/twitter">Twitter trends</Link>
-                    <Link onClick={handleToggle} href="/nigeria-news">Nigeria News</Link>
-                    <Link onClick={handleToggle} href="/login">Login</Link>
-                    <Link onClick={handleToggle} href="/register">
-                        <Button>Sign up</Button>
-                    </Link>
-                </div>
-            </div>
-        </StyledHeader>
-    )
-}
+      <div
+        onClick={handleToggle}
+        className={toggle ? "overlay active" : "overlay"}
+      >
+        <div className="menu-container">
+          <Link onClick={handleToggle} href="/">
+            Home
+          </Link>
+          <Link onClick={handleToggle} href="/twitter-trends">
+            Twitter trends
+          </Link>
+          <Link onClick={handleToggle} href="/nigeria-news">
+            Nigeria News
+          </Link>
+          <Link onClick={handleToggle} href="/login">
+            Login
+          </Link>
+          <Link onClick={handleToggle} href="/register">
+            <Button>Sign up</Button>
+          </Link>
+        </div>
+      </div>
+    </StyledHeader>
+  );
+};
 
 export const LoggedHeader = () => {
+  const [toggle, setToggle] = useState(false);
 
-    const [toggle, setToggle] = useState(false);
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
-    const handleToggle = () => {
-        setToggle(!toggle)
-    }
+  return (
+    <StyledLoggedHeader>
+      <div className="logo">logo</div>
+      <div className="menu">
+        <Link href="/nigeria-info">
+          <a>
+            Nigerian Info
+            <TiInfoLargeOutline className="icon" />
+          </a>
+        </Link>
+        <Link href="/nigeria-news">
+          <a>
+            Nigerian News
+            <GiNewspaper className="icon" />
+          </a>
+        </Link>
+        <Link href="/trends-charts">
+          <a>
+            Trend Charts
+            <RiPieChartLine className="icon" />
+          </a>
+        </Link>
+        <Link href="/twitter-trends">
+          <a>
+            Twitter Trends
+            <SiTwitter className="icon" />
+          </a>
+        </Link>
 
-    return (
-        <StyledLoggedHeader>
-            <div className="logo">logo</div>
-            <div className="menu">
-                <Link href="/nigeria-info">
-                    <a>
-                        Nigerian Info
-                        <TiInfoLargeOutline className="icon" />
-                    </a>
-                </Link>
-                <Link href="/nigeria-news">
-                    <a>
-                        Nigerian News
-                        <GiNewspaper className="icon" />
-                    </a>
-                </Link>
-                <Link href="/trends-charts">
-                    <a>
-                        Trend Charts
-                        <RiPieChartLine className="icon" />
-                    </a>
-                </Link>
-                <Link href="/">
-                    <a>
-                        Twitter Trends
-                        <SiTwitter className="icon" />
-                    </a>
-                </Link>
-
-                <div className="user">
-                    <BiUserCircle className="icon" />
-                    <div className="name">Solaru Olusegun</div>
-                    <BiChevronDownCircle className="icon small" />
-
+        <div className="user">
+          <BiUserCircle className="icon" />
+          <div className="name">Solaru Olusegun</div>
+          <BiChevronDownCircle className="icon small" />
+          {/* 
                     <div className="dropdown">
                         <Link href="/">
                             <a>
@@ -108,26 +118,39 @@ export const LoggedHeader = () => {
                             <AiOutlineLogout className="icon" />
                             Logout
                         </button>
-                    </div>
-                </div>
-            </div>
-            <div onClick={handleToggle} className="mobileToggler">
-                <GiHamburgerMenu className="icon" />
-                Menu
-            </div>
+                    </div> */}
+        </div>
+      </div>
+      <div onClick={handleToggle} className="mobileToggler">
+        <GiHamburgerMenu className="icon" />
+        Menu
+      </div>
 
-            <div onClick={handleToggle} className={toggle ? "overlay active" : "overlay"}>
-                <div className="menu-container">
-                    <Link onClick={handleToggle} href="/">Home</Link>
-                    <Link onClick={handleToggle} href="/nigeria-info">Nigerian Info</Link>
-                    <Link onClick={handleToggle} href="/nigeria-news">Nigeria News</Link>
-                    <Link onClick={handleToggle} href="/trends-charts">Trend Charts</Link>
-                    <Link onClick={handleToggle} href="/">Twitter Trends</Link>
-                </div>
-            </div>
-        </StyledLoggedHeader>
-    )
-}
+      <div
+        onClick={handleToggle}
+        className={toggle ? "overlay active" : "overlay"}
+      >
+        <div className="menu-container">
+          <Link onClick={handleToggle} href="/">
+            Home
+          </Link>
+          <Link onClick={handleToggle} href="/nigeria-info">
+            Nigerian Info
+          </Link>
+          <Link onClick={handleToggle} href="/nigeria-news">
+            Nigeria News
+          </Link>
+          <Link onClick={handleToggle} href="/trends-charts">
+            Trend Charts
+          </Link>
+          <Link onClick={handleToggle} href="/twitter-trends">
+            Twitter Trends
+          </Link>
+        </div>
+      </div>
+    </StyledLoggedHeader>
+  );
+};
 
 const StyledHeader = Styled.header`
     width: 100%;
@@ -288,7 +311,7 @@ const StyledLoggedHeader = Styled.header`
                 padding: 1.5rem;
 
                 a {
-                    width: 100%:
+                    width: 100%;
                     height: 32px;
                     display: flex;
                     align-items: center;
@@ -361,4 +384,4 @@ const StyledLoggedHeader = Styled.header`
             }
         }
     }
-`
+`;

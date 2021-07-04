@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Drawer } from "antd";
 import { BsFillHeartFill } from "react-icons/bs";
 import { GrPlayFill } from "react-icons/gr";
 import images from "../../assets/images";
 
-const RightSide = () => {
+const RightSide = ({ onClose, visible }) => {
   const [active, setActive] = useState("avatar1");
   const [activeUrl, setActiveUrl] = useState("avatar1");
 
@@ -81,6 +82,35 @@ const RightSide = () => {
           </div>
         </div>
       </RightSideStyles>
+      <Drawer
+        title="Change Avatar"
+        placement="right"
+        closable={true}
+        onClose={onClose}
+        visible={visible}
+        width="75%"
+      >
+        <DrawerCard>
+          <div className="current">
+            <img src={images.active} alt={images.active} />
+          </div>
+          <div className="avatars">
+            {avatars.map((avatar, index) => (
+              <div
+                className={
+                  active === "avatar" + (index + 1) ? "avatar active" : "avatar"
+                }
+                onClick={() => setActive("avatar" + (index + 1))}
+              >
+                <img src={avatar} alt={avatar} />
+              </div>
+            ))}
+          </div>
+          <div className="title">
+            <button>Save</button>
+          </div>
+        </DrawerCard>
+      </Drawer>
     </>
   );
 };
@@ -239,5 +269,51 @@ const RightSideStyles = styled.div`
         }
       }
     }
+  }
+`;
+
+const DrawerCard = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+  .current {
+    width: 120px;
+    height: 120px;
+    margin: 1rem auto;
+    border-radius: 100%;
+    border: 3px solid #3dc8f9;
+  }
+  .avatars {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .avatar {
+      width: 27%;
+      height: auto;
+      overflow: hidden;
+      border-radius: 100%;
+      cursor: pointer;
+      margin: 1rem 0 1rem 1rem;
+
+      &.active {
+        border: 3px solid #3dc8f9;
+      }
+    }
+  }
+
+  button {
+    display: block;
+    width: 150px;
+    height: 45px;
+    margin: 2.5rem auto 0;
+    background: #3376bc;
+    box-sizing: border-box;
+    border-radius: 60px;
+    color: #e2fdff;
+    border: none;
   }
 `;

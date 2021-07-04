@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { LoggedHeader } from "../../components/Header";
 import LeftSide from "../../parts/profile/LeftSide";
 import RightSide from "../../parts/profile/RightSide";
 
 const Profile = () => {
+  // Mobile Drawer
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
   return (
     <>
       <LoggedHeader />
       <ProfileStyles>
-        <LeftSide />
-        <RightSide />
+        <LeftSide showDrawer={showDrawer} />
+        <RightSide onClose={onClose} visible={visible} />
       </ProfileStyles>
     </>
   );
