@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Styled from 'styled-components';
-import Header from '../../components/Header';
+import {Header} from '../../components/Header';
 import NewsList from '../../components/nigeria-info/NewsList';
 
 // icon
