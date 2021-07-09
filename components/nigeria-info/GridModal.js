@@ -78,11 +78,17 @@ const ModalContainer = Styled.div`
         font-size: 1.4rem;
         font-weight: 600;
         color: #000;
+        text-align: center;
     }
 
     .modalGrid {
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min-content, 220px));
+
+        @media (max-width: 480px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         .card {
             width: 100%;

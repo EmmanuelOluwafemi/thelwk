@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
 import { LinkButton } from '../Button';
+import Link from 'next/link';
 
 const SideCard = ({ imgUrl, title, desc }) => {
     return (
@@ -15,7 +16,9 @@ const SideCard = ({ imgUrl, title, desc }) => {
                     {desc}
                 </div>
                 <div className="buttonContainer">
-                    <LinkButton color="primary" text="Read More" />
+                    <Link href="/nigeria-news/abs" passHref>
+                        <LinkButton color="primary" text="Read More" />
+                    </Link>
                 </div>
             </div>
         </StyledSideCard>

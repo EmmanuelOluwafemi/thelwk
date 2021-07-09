@@ -43,14 +43,18 @@ const StyledModal = Styled.div`
         background: #fff;
         padding: 2.5rem 3.5rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
 
         @media( max-width: 768px ) {
             min-height: 300px;
+            max-height: 88vh;
             max-width: 90vw;
-
+            padding: 2rem 1rem;
             overflow: auto;
+            justify-content: flex-start;
+            padding-top: 2rem;
         }
         
         .close {
@@ -65,6 +69,12 @@ const StyledModal = Styled.div`
             border-radius: 50%;
             background: rgba(145, 187, 229, 0.3);
             cursor: pointer;
+
+            @media (max-width: 768px) {
+                position: fixed;
+                top: 4rem;
+                right: 2rem;
+            }
 
             .icon {
                 font-size: 1rem;

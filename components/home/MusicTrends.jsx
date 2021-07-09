@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import Link from 'next/link'
 
 // icons
 import { AiFillApple } from 'react-icons/ai';
@@ -72,7 +73,9 @@ const MusicTrends = () => {
                 </div>
             </div>
             <div className="buttonContainer">
-                <LinkButton text="See all" color="primary" link="/" />
+                <Link href="/trends-charts" passRef>
+                    <LinkButton text="See all" color="primary" />
+                </Link>
             </div>
         </StyledMusicTrend>
     )

@@ -30,7 +30,7 @@ const OffendersCard = ({imgUrl, name, offence, date }) => {
                     <div className="label">Date Convicted</div>
                     <div className="new">{date}</div>
                 </div>
-                <Button onClick={openModal}>More Details</Button>
+                <Button func={openModal}>More Details</Button>
             </div>
         </StyledOffenders>
     )

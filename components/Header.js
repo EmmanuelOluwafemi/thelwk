@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Styled from "styled-components";
 
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
 import { Button } from "./Button";
 
@@ -13,8 +14,8 @@ import { SiTwitter } from "react-icons/si";
 import { BiUserCircle } from "react-icons/bi";
 import { BiChevronDownCircle } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaUser } from "react-icons/fa";
-import { AiOutlineLogout } from "react-icons/ai";
+// import { FaUser } from "react-icons/fa";
+// import { AiOutlineLogout } from "react-icons/ai";
 
 export const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -25,7 +26,9 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <div className="logo">logo</div>
+        <div className="logo">
+          <Link href="/">logo</Link>
+        </div>
       <div className="menu">
         <Link href="/">Home</Link>
         <Link href="/twitter-trends">Twitter trends</Link>
@@ -67,6 +70,8 @@ export const Header = () => {
 };
 
 export const LoggedHeader = () => {
+  const router = useRouter()
+
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
@@ -74,29 +79,31 @@ export const LoggedHeader = () => {
   };
 
   return (
-    <StyledLoggedHeader>
-      <div className="logo">logo</div>
+    <StyledLoggedHeader className="header">
+      <div className="logo">
+          <Link href="/">logo</Link>
+      </div>
       <div className="menu">
         <Link href="/nigeria-info">
-          <a>
+          <a className={router.pathname == "/nigeria-info" ? 'active' : ''}>
             Nigerian Info
             <TiInfoLargeOutline className="icon" />
           </a>
         </Link>
         <Link href="/nigeria-news">
-          <a>
+          <a className={router.pathname == "/nigeria-news" ? 'active' : ''}>
             Nigerian News
             <GiNewspaper className="icon" />
           </a>
         </Link>
         <Link href="/trends-charts">
-          <a>
+          <a className={router.pathname == "/trends-charts" ? 'active' : ''}>
             Trend Charts
             <RiPieChartLine className="icon" />
           </a>
         </Link>
         <Link href="/twitter-trends">
-          <a>
+          <a className={router.pathname == "/twitter-trends" ? 'active' : ''}>
             Twitter Trends
             <SiTwitter className="icon" />
           </a>
@@ -160,6 +167,13 @@ const StyledHeader = Styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &.sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
 
     .menu {
         display: flex;
@@ -242,10 +256,16 @@ const StyledLoggedHeader = Styled.header`
     align-items: center;
     justify-content: space-between;
     background: #0C2333;
+    position: relative;
+    z-index: 2;
 
     .logo {
         font-size: 1.3rem;
         color: #fff;
+
+        a {
+            color: #fff;
+        }
     }
 
     .menu {
@@ -266,6 +286,10 @@ const StyledLoggedHeader = Styled.header`
             color: #656565;
             text-decoration: none;
             margin-left: 2.5rem;
+
+            &.active {
+              color: #fff;
+            }
 
             .icon {
                 font-size: 1.3rem;

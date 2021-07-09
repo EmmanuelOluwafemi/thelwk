@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import Link from 'next/link'
 
 // icons
 import { AiOutlineDown } from 'react-icons/ai';
@@ -24,7 +25,11 @@ const TwitterCard = () => {
             </div>
 
             <div className="seeMore">
-                Show more <AiOutlineDown className="icon" />
+                <Link href="/twitter-trends">
+                    <a>
+                        Show more <AiOutlineDown className="icon" />
+                    </a>
+                </Link>
             </div>
         </StyledTwitterCard>
     )

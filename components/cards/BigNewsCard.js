@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 // External Library
 import Styled from 'styled-components';
 import Slider from 'react-slick';
+import Link from 'next/link'
 
 // Icons
 import { IoChevronBack } from 'react-icons/io5';
@@ -72,7 +73,7 @@ const BigNewsCard = () => {
                         <article key={imgUrl}>
                             <img src={imgUrl} alt={title} />
                             <h4>{title}</h4>
-                            <p>{content} <span>read more...</span></p>
+                            <p>{content} <Link href={`/nigeria-news/${title}`}>read more...</Link></p>
                         </article>
                     ) )
                 }
@@ -119,7 +120,7 @@ const StyledNewCard = Styled.div`
             font-weight: 400;
             margin-top: .5rem;
 
-            span {
+            a {
                 color: #3376BC !important;
                 cursor: pointer;
             }

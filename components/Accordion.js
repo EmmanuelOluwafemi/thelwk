@@ -51,11 +51,12 @@ const Accordion = ({ mainTitle, num, data }) => {
                     <AiOutlineRight className={`icon ${setActive}` } />
                 </div>
             </div>
-            <div ref={content} style={{ maxHeight: `${setHeight}` }} className="content">
+            <div ref={content} style={{ maxHeight: `${setHeight}` }} className="content-new">
                 {
                     data.map(({ imgUrl, title, artist, dur, album }) => (
                         <AccordionCard 
                             imgUrl={imgUrl}
+                            key={imgUrl}
                             title={title}
                             artist={artist}
                             dur={dur}
@@ -117,7 +118,7 @@ const StyledAccordion = Styled.div`
         }
     }
 
-    .content {
+    .content-new {
         margin-top: 2rem;
         margin-bottom: 1rem;
         overflow: hidden;

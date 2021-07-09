@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import Styled from 'styled-components';
 import { LinkButton } from '../Button';
 
+import Link from 'next/link'
+
 const ArticleCard = ({ imgUrl, title, desc, date, ads }) => {
 
     return (
@@ -14,7 +16,9 @@ const ArticleCard = ({ imgUrl, title, desc, date, ads }) => {
                 {
                     !ads ?
                     <div className="overlay">
-                        <LinkButton text="Read More" />
+                        <Link href={`/nigeria-news/${title}`}>
+                            <LinkButton text="Read More" />
+                        </Link>
                     </div>
                     : null
                 }
@@ -72,6 +76,13 @@ const StyledArticleCard = Styled.article`
             align-items: center;
             justify-content: center;
             display: none;
+            cursor: pointer;
+        }
+
+        &:hover {
+            .overlay {
+                display: flex;
+            }
         }
 
         .ads {
@@ -94,10 +105,11 @@ const StyledArticleCard = Styled.article`
         img {
             width: 100%;    
             height: auto;
+            pointer-events: none;
         }
 
-        img:hover ~ .overlay {
+        /* img:hover ~ .overlay {
             display: flex;
-        }
+        } */
     }
 `;

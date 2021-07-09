@@ -13,16 +13,14 @@ export const Button = ({ children, func }) => {
     )
 }
 
-export const LinkButton = ({ text, link, color }) => {
+export const LinkButton = React.forwardRef(({ onClick, href, text, color, bg }, ref) => {
     return (
-        <LinkButtonStyled className={color === 'primary' ? 'primary' : ''} href={`/${link}`}>
-            <a>
-                {text}
-                <IoArrowForwardSharp className="icon" />
-            </a>
+        <LinkButtonStyled href={href} onClick={onClick} ref={ref} style={{ backgroundColor: `${bg ? '#3376BC' : ''}`, color: `${bg ? '#fff': ''}`  }} className={color === 'primary' ? 'primary' : ''}>
+            {text}
+            <IoArrowForwardSharp className="icon" />
         </LinkButtonStyled>
     )
-}
+})
 
 const StyledButton = Styled.button`
     padding: 1.05rem 1.0625rem;

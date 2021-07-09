@@ -214,6 +214,10 @@ const StyledTrends =  Styled.div`
             &.second {
                 left: 50%;
             }
+
+            @media (max-width: 768px) {
+                width: 160px;
+            }
         }
 
         .tab {
@@ -243,6 +247,19 @@ const StyledTrends =  Styled.div`
                     color: #fff;
                 }
             }
+
+            @media (max-width: 768px) {
+                width: 160px;
+                font-size: 1rem;
+
+                &:last-child {
+                    margin-left: 1rem;
+                }
+
+                .icons {
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
 
@@ -251,6 +268,11 @@ const StyledTrends =  Styled.div`
         display: grid;
         grid-template-columns: 60% 35%;
         grid-gap: 3rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 100%;
+
+        }
 
         .main-card {
             width: 100%;

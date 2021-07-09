@@ -104,6 +104,10 @@ const TwoGrid = Styled.div`
     grid-template-columns: 6fr 3fr;
     grid-gap: 2rem;
 
+    @media (max-width: 768px) {
+        grid-template-columns: 100%;
+    }
+
     .news {
         width: 100%;
 

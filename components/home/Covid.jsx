@@ -3,6 +3,8 @@ import React from 'react';
 import Styled from 'styled-components';
 import { LinkButton } from '../Button';
 
+import Link from 'next/link'
+
 const CovidCard = ({ num, status, color }) => (
     <StyledCard>
         <div style={{ background: `${color}` }} className="circle"></div>
@@ -24,7 +26,9 @@ const Covid = () => {
                 <CovidCard num='57,595' color='#4AFF72' status='Recovered' />
                 <CovidCard num='57,595' color='#FF7070' status='Deaths' />
                 <div>
-                    <LinkButton text="See breakdown" color="primary" link="/" />
+                    <Link href="/nigeria-info" passHref>
+                        <LinkButton text="See breakdown" color="primary" link="/" />
+                    </Link>
                 </div>
             </div>
         </StyledCovid>
@@ -52,7 +56,8 @@ const StyledCovid = Styled.section`
         grid-gap: 2rem;
 
         @media (max-width: 768px) {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: .7rem;
         }
     }
 `;
@@ -64,11 +69,20 @@ const StyledCard = Styled.div`
     display: flex;
     border-radius: 1rem;
 
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+
     .circle {
         width: 60px;
         height: 60px;
         border-radius: 50%;
         background: red;
+
+        @media (max-width: 768px) {
+            width: 32px;
+            height: 32px;
+        }
     }
 
     .info {
@@ -78,12 +92,20 @@ const StyledCard = Styled.div`
             font-size: 2rem;
             font-weight: 600;
             color: #000;
+
+            @media (max-width: 768px) {
+                font-size: 1.25rem;
+            }
         }
 
         .status {
             font-size: 1rem;
             font-weight: 300;
             color: #000;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
         }
     }
 `;

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // External Library
 import Styled from 'styled-components'
@@ -14,25 +15,28 @@ import covid from '../assets/icons/covid.svg'
 import { LoggedHeader } from '../components/Header'
 
 const TrendsChartsLayout = ({ children }) => {
+
+    const router = useRouter();
+
     return (
         <>
             <LoggedHeader />
             <StyledLayout>
                 <div className="side-bar">
                     <Link href="/trends-charts">
-                        <a className="active"> 
+                        <a className={router.pathname == "/trends-charts" ? "active": ""}> 
                             <BsMusicNoteBeamed className="icons" />
                             Music Nigeria
                         </a>
                     </Link>
-                    <Link href="/trends-charts/netflix-chart">
-                        <a>
+                    <Link href="/trends-charts/netflix">
+                        <a className={router.pathname == "/trends-charts/netflix" ? "active": ""}>
                             <RiNetflixFill className="icons netflix" />
                             Netflix Chart
                         </a>
                     </Link>
                     <Link href="/trends-charts/covid-chart">
-                        <a>
+                        <a className={router.pathname == "/trends-charts/covid-chart" ? "active": ""}>
                             <img src={covid} alt="covid symbol" className="covid" />
                             COVID Chart
                         </a>
@@ -80,7 +84,6 @@ const StyledLayout = Styled.section`
         position: fixed;
         top: 0;
         left: 0;
-        z-index: -1;
         bottom: 0;
         width: 250px;
         height: 100%;

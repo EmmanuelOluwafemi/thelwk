@@ -1,19 +1,25 @@
 import React from 'react';
 import Styled from 'styled-components';
 import Slider from "react-slick";
-import { IoArrowForwardSharp } from 'react-icons/io5';
+import Link from 'next/link'
 
 // Components
-import {Button} from './Button';
+import {LinkButton} from './Button';
 
 import bg1 from '../assets/images/bg1.jpg';
 
 const Hero = () => {
     const settings = {
+        autoplay: true,
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        customPaging: function (i) {
+            return <div className="dot"></div>;
+        },
+        dotsClass: "slick-dots slick-thumb"
     };
     return (
         <SliderContainer>
@@ -23,11 +29,9 @@ const Hero = () => {
                         <h2>Lorem ipsum dolor sit amet, consectetur</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             Eu suspendisse tortor nunc arcu. Ut et netus vel tellus.</p>
-                        <Button>
-                            Sign up
-
-                            <IoArrowForwardSharp className="icon" />
-                        </Button>
+                        <Link href="/register" passHref>
+                            <LinkButton text="Sign up" color="primary" bg />
+                        </Link>
                     </StyledHero>
                 </div>
                 <div>
@@ -35,11 +39,19 @@ const Hero = () => {
                         <h2>Lorem ipsum dolor sit amet, consectetur</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             Eu suspendisse tortor nunc arcu. Ut et netus vel tellus.</p>
-                        <Button>
-                            Sign up
-
-                            <IoArrowForwardSharp className="icon" />
-                        </Button>
+                        <Link href="/register" passHref>
+                            <LinkButton text="Sign up" color="primary" bg />
+                        </Link>
+                    </StyledHero>
+                </div>
+                <div>
+                    <StyledHero style={{ backgroundImage: `url(${bg1})` }}>
+                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Eu suspendisse tortor nunc arcu. Ut et netus vel tellus.</p>
+                        <Link href="/register" passHref>
+                            <LinkButton text="Sign up" color="primary" bg />
+                        </Link>
                     </StyledHero>
                 </div>
             </Slider>
@@ -52,8 +64,52 @@ export default Hero;
 const SliderContainer = Styled.div`
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
+
+
+    .slick-slider {
+        .slick-dots.slick-thumb {
+            top: 0;
+            left: 73%;
+            transform: translateX(-50%) rotate(90deg);
+            pointer-events: none;
+
+            @media (max-width: 768px) {
+                top: 90%;
+                left: 50%;
+                transform: translateX(-50%) rotate(0);
+            }
+
+            li {
+                position: relative;
+                width: 1rem;
+                height: 1rem;
+                margin: 0 3px;
+                border-radius: 999px;
+                transition: all 0.5s ease-in-out;
+                will-change: width;
+                background-color: none;
+                border: 1px solid #fff;
+            }
+
+            li.slick-active {
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 3px;
+                    height: 3px;
+                    background: #fff;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+    } 
 `
+
 
 const StyledHero = Styled.section`
     width: 100%;

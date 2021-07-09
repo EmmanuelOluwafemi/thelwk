@@ -1,8 +1,10 @@
 import React from 'react';
 import Styled from 'styled-components';
+import Link from 'next/link'
 
 // component
 import NetflixCard from './cards/NetflixCard';
+import { LinkButton } from './Button';
 
 // icons
 import { FiTrendingUp } from 'react-icons/fi';
@@ -13,7 +15,6 @@ import vid2 from '../assets/images/vid2.jpg'
 import vid3 from '../assets/images/vid3.jpg'
 import vid4 from '../assets/images/vid4.jpg'
 import netflixAd from '../assets/images/netflixAd1.jpg'
-import { LinkButton } from './Button';
 
 const data = [
     {
@@ -71,7 +72,9 @@ const NetflixTrend = () => {
             </div>
 
             <div className="buttonContainer">
-                <LinkButton text="See all" color="primary" link="/" />
+                <Link href="/trends-charts/netflix" passRef>
+                    <LinkButton text="See all" color="primary" link="/" />
+                </Link>
             </div>
         </StyledNetflixTrend>
     )

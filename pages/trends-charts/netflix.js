@@ -178,7 +178,7 @@ const StyledTrend = Styled.section`
                 }
 
                 .bigTitle {
-                    font-size: 12rem;
+                    font-size: 9rem;
                     font-weight: 700;
                     -webkit-text-stroke: 1px #E0CDBA;
                     -webkit-text-fill-color: transparent;
