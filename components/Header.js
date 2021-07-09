@@ -14,14 +14,20 @@ import { SiTwitter } from "react-icons/si";
 import { BiUserCircle } from "react-icons/bi";
 import { BiChevronDownCircle } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
-// import { FaUser } from "react-icons/fa";
-// import { AiOutlineLogout } from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
+import { AiOutlineLogout } from "react-icons/ai";
+import { Drawer } from "antd";
+import styled from "styled-components";
 
 export const Header = () => {
-  const [toggle, setToggle] = useState(false);
+  // Handle Mobile nav
+  const [visible, setVisible] = useState(false);
+  const onClose = () => {
+    setVisible(false);
+  };
 
-  const handleToggle = () => {
-    setToggle(!toggle);
+  const showDrawer = () => {
+    setVisible(true);
   };
 
   return (
@@ -38,44 +44,49 @@ export const Header = () => {
           <Button>Sign up</Button>
         </Link>
       </div>
-      <div onClick={handleToggle} className="mobileToggler">
+      <div onClick={showDrawer} className="mobileToggler">
         <GiHamburgerMenu className="icon" />
         Menu
       </div>
-
-      <div
-        onClick={handleToggle}
-        className={toggle ? "overlay active" : "overlay"}
+      <Drawer
+        title="Nav Bar"
+        placement="right"
+        closable={true}
+        onClose={onClose}
+        visible={visible}
+        width="65%"
       >
-        <div className="menu-container">
-          <Link onClick={handleToggle} href="/">
+        <MenuStyle onClick={onClose}>
+          <Link href="/">
             Home
           </Link>
-          <Link onClick={handleToggle} href="/twitter-trends">
+          <Link href="/twitter-trends">
             Twitter trends
           </Link>
-          <Link onClick={handleToggle} href="/nigeria-news">
+          <Link href="/nigeria-news">
             Nigeria News
           </Link>
-          <Link onClick={handleToggle} href="/login">
+          <Link href="/login">
             Login
           </Link>
-          <Link onClick={handleToggle} href="/register">
+          <Link href="/register">
             <Button>Sign up</Button>
           </Link>
-        </div>
-      </div>
+        </MenuStyle>
+      </Drawer>
     </StyledHeader>
   );
 };
 
 export const LoggedHeader = () => {
-  const router = useRouter()
+  // Handle Mobile nav
+  const [visible, setVisible] = useState(false);
+  const onClose = () => {
+    setVisible(false);
+  };
 
-  const [toggle, setToggle] = useState(false);
-
-  const handleToggle = () => {
-    setToggle(!toggle);
+  const showDrawer = () => {
+    setVisible(true);
   };
 
   return (
@@ -128,33 +139,27 @@ export const LoggedHeader = () => {
                     </div> */}
         </div>
       </div>
-      <div onClick={handleToggle} className="mobileToggler">
+      <div onClick={showDrawer} className="mobileToggler">
         <GiHamburgerMenu className="icon" />
         Menu
       </div>
 
-      <div
-        onClick={handleToggle}
-        className={toggle ? "overlay active" : "overlay"}
+      <Drawer
+        title="Nav Bar"
+        placement="right"
+        closable={true}
+        onClose={onClose}
+        visible={visible}
+        width="65%"
       >
-        <div className="menu-container">
-          <Link onClick={handleToggle} href="/">
-            Home
-          </Link>
-          <Link onClick={handleToggle} href="/nigeria-info">
-            Nigerian Info
-          </Link>
-          <Link onClick={handleToggle} href="/nigeria-news">
-            Nigeria News
-          </Link>
-          <Link onClick={handleToggle} href="/trends-charts">
-            Trend Charts
-          </Link>
-          <Link onClick={handleToggle} href="/twitter-trends">
-            Twitter Trends
-          </Link>
-        </div>
-      </div>
+        <MenuStyle onClick={onClose}>
+          <Link href="/">Home</Link>
+          <Link href="/nigeria-info">Nigerian Info</Link>
+          <Link href="/nigeria-news">Nigeria News</Link>
+          <Link href="/trends-charts">Trend Charts</Link>
+          <Link href="/twitter-trends">Twitter Trends</Link>
+        </MenuStyle>
+      </Drawer>
     </StyledLoggedHeader>
   );
 };
@@ -209,42 +214,7 @@ const StyledHeader = Styled.header`
         @media (min-width: 768px) {
             display: none;
         }
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        right: -100vw;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, .4);
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        transition: all .7s ease-in;
-
-        &.active {
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .menu-container {
-            height: 100%;
-            width: 65%;
-            background: #fff;
-            padding: 3rem 1rem;
-
-            a {
-                display: block;
-                font-size: 1.25rem;
-                font-weight: 600;
-                color: #0C2333;
-                margin-bottom: 2rem;
-            }
-        }
-    }
+    }    
 `;
 
 const StyledLoggedHeader = Styled.header`
@@ -373,39 +343,19 @@ const StyledLoggedHeader = Styled.header`
             display: none;
         }
     }
+`;
 
-    .overlay {
-        position: fixed;
-        top: 0;
-        right: -100vw;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, .4);
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        transition: all .7s ease-in;
+const MenuStyle = Styled.div`
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  padding: 3rem 1rem;
 
-        &.active {
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .menu-container {
-            height: 100%;
-            width: 65%;
-            background: #fff;
-            padding: 3rem 1rem;
-
-            a {
-                display: block;
-                font-size: 1.25rem;
-                font-weight: 600;
-                color: #0C2333;
-                margin-bottom: 2rem;
-            }
-        }
-    }
+  a {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0C2333;
+    margin-bottom: 2rem;
+  }
 `;
