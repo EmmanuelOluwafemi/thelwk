@@ -20,6 +20,7 @@ import { Drawer } from "antd";
 import styled from "styled-components";
 
 export const Header = () => {
+
   // Handle Mobile nav
   const [visible, setVisible] = useState(false);
   const onClose = () => {
@@ -79,8 +80,13 @@ export const Header = () => {
 };
 
 export const LoggedHeader = () => {
+
+  const router = useRouter();
+
   // Handle Mobile nav
   const [visible, setVisible] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
   const onClose = () => {
     setVisible(false);
   };
@@ -120,23 +126,23 @@ export const LoggedHeader = () => {
           </a>
         </Link>
 
-        <div className="user">
+        <div onClick={() => setDropdown(!dropdown)} className="user">
           <BiUserCircle className="icon" />
           <div className="name">Solaru Olusegun</div>
           <BiChevronDownCircle className="icon small" />
-          {/* 
-                    <div className="dropdown">
-                        <Link href="/">
-                            <a>
-                                <FaUser className="icon" />
-                                Profile
-                            </a>
-                        </Link>
-                        <button>
-                            <AiOutlineLogout className="icon" />
-                            Logout
-                        </button>
-                    </div> */}
+
+          <div className={dropdown ? "dropdown active": "dropdown"}>
+              <Link href="/profile">
+                  <a style={{ padding: '.7rem 0' }}>
+                      <FaUser className="icon" />
+                      Profile
+                  </a>
+              </Link>
+              <button>
+                  <AiOutlineLogout className="icon" />
+                  Logout
+              </button>
+          </div>
         </div>
       </div>
       <div onClick={showDrawer} className="mobileToggler">
@@ -302,23 +308,69 @@ const StyledLoggedHeader = Styled.header`
                 right: 0;
                 left: 0;
                 background: #0C2333;
-                padding: 1.5rem;
+                padding: 0;
+                height: 0;
+                overflow: hidden;
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: all .6s ease-in-out;
+
+                &.active {
+                  height: 150px;
+                  padding: 1.5rem;
+                  transform: scaleY(1);
+                }
 
                 a {
                     width: 100%;
-                    height: 32px;
+                    height: 4rem;
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: flex-start;
                     font-size: 1rem;
                     font-weight: 700;
                     color: #fff;
+                    margin: 0;
+                    padding: .5rem 0;
+                    border-bottom: 1px solid rgba(255, 255, 255, .4);
 
                     .icon {
                         font-size: 1.5rem;
                         color: #fff;
-                        margin-right: .7rem;
+                        margin-right: 1.5rem;
+                        margin-left: 0;
                     }
+
+                    &:hover {
+                      background: #0f2d42;
+                    }
+                }
+
+                button {
+                  background: none;
+                  width: 100%;
+                  height: 4rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  font-size: 1rem;
+                  font-weight: 700;
+                  color: #fff;
+                  border: none;
+                  outline: none;
+                  padding: .5rem 0;
+                  cursor: pointer;
+
+                  .icon {
+                      font-size: 1.5rem;
+                      color: #fff;
+                      margin-right: 1.5rem;
+                      margin-left: 0;
+                  }
+
+                  &:hover {
+                      background: #0f2d42;
+                  }
                 }
             }
         }
