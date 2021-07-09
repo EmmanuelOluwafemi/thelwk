@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 
 import { Button } from "./Button";
+import { Drawer } from "antd";
 
 // icons
 import { TiInfoLargeOutline } from "react-icons/ti";
@@ -16,8 +17,6 @@ import { BiChevronDownCircle } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUser } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
-import { Drawer } from "antd";
-import styled from "styled-components";
 
 export const Header = () => {
 

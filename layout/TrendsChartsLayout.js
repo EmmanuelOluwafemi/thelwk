@@ -50,13 +50,13 @@ const TrendsChartsLayout = ({ children }) => {
                             Music Nigeria
                         </a>
                     </Link>
-                    <Link href="/trends-charts/netflix-chart">
+                    <Link href="/trends-charts/netflix">
                         <a>
                             <RiNetflixFill className="icons netflix" />
                             Netflix Chart
                         </a>
                     </Link>
-                    <Link href="/trends-charts/covid-chart">
+                    <Link href="/trends-charts/covid">
                         <a>
                             <img src={covid} alt="covid symbol" className="covid" />
                             COVID Chart
