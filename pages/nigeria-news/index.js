@@ -66,9 +66,11 @@ const NigeriaNews = () => {
                                 700
                             </div>
                         </div>
-                        <div className="blog-title">
-                            The world’s clamour now asides COVID-19 is to #EndPoliceBrutality in Nigeria.
-                        </div>
+                        <Link href="/nigeria-news/asd">
+                            <a className="blog-title">
+                                The world’s clamour now asides COVID-19 is to #EndPoliceBrutality in Nigeria.
+                            </a>
+                        </Link>
                     </div>
 
                     <div className="offenders-container">

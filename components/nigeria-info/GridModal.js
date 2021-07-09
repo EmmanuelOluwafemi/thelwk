@@ -2,6 +2,7 @@ import React from 'react';
 
 import Styled from 'styled-components';
 import Modal from '../../components/Modal';
+import Link from 'next/link'
 
 import elect from '../../assets/images/elect-1.jpg';
 
@@ -56,11 +57,13 @@ const GridModal = ({ func }) => {
                 <div className="modalGrid">
                     {
                         data.map(({ imgUrl, title, position }) => (
-                            <div className="card">
-                                <img src={imgUrl} alt={title} />
-                                <div className="title">{title}</div>
-                                <div className="position">{position}</div>
-                            </div>
+                            <Link href="/nigeria-info/elected">
+                                <a className="card">
+                                    <img src={imgUrl} alt={title} />
+                                    <div className="title">{title}</div>
+                                    <div className="position">{position}</div>
+                                </a>
+                            </Link>
                         ))
                     }
                 </div>
@@ -109,7 +112,7 @@ const ModalContainer = Styled.div`
             .name {
                 font-size: 1rem;
                 font-weight: 700;
-                color: #000;
+                color: #000 !important;
                 text-align: center;
                 margin-top: 8px;
             }

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Styled from 'styled-components'
+import Link from 'next/link'
 
 // images
 import buhari from '../../assets/images/buhari.jpg';
@@ -20,22 +21,30 @@ const NewsList = () => {
             <div className="grid">
                 <div className="card">
                     <img src={buhari} alt="buhari" />
-                    <div className="subtitle">Lagos estimated a budget of 1trillion to...</div>
+                    <Link href="/nigeria-news/acj">
+                        <a className="subtitle">Lagos estimated a budget of 1trillion to...</a>
+                    </Link>
                     <div className="shortContent">Lorem Ipsum d’olor sat...</div>
                 </div>
                 <div className="card">
                     <img src={buhari} alt="buhari" />
-                    <div className="subtitle">Lagos estimated a budget of 1trillion to...</div>
+                    <Link href="/nigeria-news/acj">
+                        <a className="subtitle">Lagos estimated a budget of 1trillion to...</a>
+                    </Link>
                     <div className="shortContent">Lorem Ipsum d’olor sat...</div>
                 </div>
                 <div className="card">
                     <img src={buhari} alt="buhari" />
-                    <div className="subtitle">Lagos estimated a budget of 1trillion to...</div>
+                    <Link href="/nigeria-news/acj">
+                        <a className="subtitle">Lagos estimated a budget of 1trillion to...</a>
+                    </Link>
                     <div className="shortContent">Lorem Ipsum d’olor sat...</div>
                 </div>
                 <div className="card">
-                    <img src={ads3} alt="ads" />
-                    <div className="subtitle">Lagos estimated a budget of 1trillion to...</div>
+                    <img src={ads3} alt="buhari" />
+                    <Link href="/nigeria-news/acj">
+                        <a className="subtitle">Lagos estimated a budget of 1trillion to...</a>
+                    </Link>
                     <div className="shortContent">Lorem Ipsum d’olor sat...</div>
                 </div>
             </div>

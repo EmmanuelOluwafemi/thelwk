@@ -1,7 +1,9 @@
 import React from 'react';
 
 import Styled from 'styled-components';
-import {Header} from '../../components/Header';
+import Link from 'next/link'
+
+import {LoggedHeader} from '../../components/Header';
 import NewsList from '../../components/nigeria-info/NewsList';
 
 // icon
@@ -14,12 +16,14 @@ import buhari from '../../assets/images/buhari.jpg';
 const Elected = () => {
     return (
         <>
-            <Header />
+            <LoggedHeader />
 
             <StyledElected>
-                <div className="iconContainer">
-                    <IoIosArrowBack className="icon" />
-                </div>
+                <Link href="/nigeria-info">
+                    <a className="iconContainer">
+                        <IoIosArrowBack className="icon" />
+                    </a>
+                </Link>
 
                 <div className="user-details">
                     <div className="img">
@@ -65,6 +69,14 @@ const StyledElected = Styled.div`
         .icon {
             font-size: 1.3rem;
             color: #0C2333;
+        }
+
+        &:hover {
+            background: #0c2333;
+
+            .icon {
+                color: #fff;
+            }
         }
     }
 

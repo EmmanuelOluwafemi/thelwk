@@ -2,6 +2,7 @@ import React from 'react';
 
 import Styled from 'styled-components';
 import NigeriaInfoLayout from '../../../layout/NigeriaInfoLayout';
+import Link from 'next/link';
 
 import school from '../../../assets/images/school.svg'
 
@@ -9,26 +10,30 @@ const School = () => {
     return (
         <NigeriaInfoLayout title="School">
             <StyledSchool>
-                <List>
-                    <img className="icon" src={school} alt="school icon" />
-                    <div className="text">Lorem Ipsum d’olo sat amet</div>
-                </List>
-                <List>
-                    <img className="icon" src={school} alt="school icon" />
-                    <div className="text">Lorem Ipsum d’olo sat amet</div>
-                </List>
-                <List>
-                    <img className="icon" src={school} alt="school icon" />
-                    <div className="text">Lorem Ipsum d’olo sat amet</div>
-                </List>
-                <List>
-                    <img className="icon" src={school} alt="school icon" />
-                    <div className="text">Lorem Ipsum d’olo sat amet</div>
-                </List>
-                <List>
-                    <img className="icon" src={school} alt="school icon" />
-                    <div className="text">Lorem Ipsum d’olo sat amet</div>
-                </List>
+                <Link href="/nigeria-info/schools/nwq">
+                    <List>
+                        <img className="icon" src={school} alt="school icon" />
+                        <div className="text">Lorem Ipsum d’olo sat amet</div>
+                    </List>
+                </Link>
+                <Link href="/nigeria-info/schools/nwq">
+                    <List>
+                        <img className="icon" src={school} alt="school icon" />
+                        <div className="text">Lorem Ipsum d’olo sat amet</div>
+                    </List>
+                </Link>
+                <Link href="/nigeria-info/schools/nwq">
+                    <List>
+                        <img className="icon" src={school} alt="school icon" />
+                        <div className="text">Lorem Ipsum d’olo sat amet</div>
+                    </List>
+                </Link>
+                <Link href="/nigeria-info/schools/nwq">
+                    <List>
+                        <img className="icon" src={school} alt="school icon" />
+                        <div className="text">Lorem Ipsum d’olo sat amet</div>
+                    </List>
+                </Link>
             </StyledSchool>
         </NigeriaInfoLayout>
     )
@@ -40,7 +45,7 @@ const StyledSchool = Styled.section`
     width: 100%;
 `;
 
-const List = Styled.div`
+const List = Styled.a`
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;

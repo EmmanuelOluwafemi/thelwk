@@ -1,27 +1,31 @@
 import React from 'react';
-
+import Link from 'next/link';
 import Styled from 'styled-components';
 
 export const OfficerCard = ({ imgUrl, name, position }) => {
     return (
-        <StyledCard>
-            <img src={imgUrl} alt={name} />
-            <div className="name">{name}</div>
-            <div className="position">{position}</div>
-        </StyledCard>
+        <Link href="/nigeria-info/elected">
+            <StyledCard>
+                <img src={imgUrl} alt={name} />
+                <div className="name">{name}</div>
+                <div className="position">{position}</div>
+            </StyledCard>
+        </Link>
     )
 }
 
 export const AmenitiesCard = ({ imgUrl, title, num }) => {
     return (
-        <AmenitiesStyle>
-            <img src={imgUrl} alt={title} />
-            <div className="title"><span>{num}</span> {title}</div>
-        </AmenitiesStyle>
+        <Link href="/nigeria-info/schools">
+            <AmenitiesStyle>
+                <img src={imgUrl} alt={title} />
+                <div className="title"><span>{num}</span> {title}</div>
+            </AmenitiesStyle>
+        </Link>
     )
 }
 
-const StyledCard = Styled.div`
+const StyledCard = Styled.a`
     width: 100%;
     max-width: 370px;
     display: flex;
@@ -58,7 +62,7 @@ const StyledCard = Styled.div`
     }
 `;
 
-const AmenitiesStyle = Styled.div`
+const AmenitiesStyle = Styled.a`
     width: 100%;
     min-height: 140px;
     padding: 1.4rem 1.8rem;
